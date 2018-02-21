@@ -11,6 +11,8 @@ import { Provider } from 'react-redux';
 import store from './store';
 import App from './App';
 
+require('../sass/style.scss');
+
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
