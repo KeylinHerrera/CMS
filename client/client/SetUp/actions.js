@@ -1,14 +1,13 @@
-// imports
+// Imports Frameworks
 import uuid from 'uuid/v1';
 
 // API URL Constant
 const API_URL = 'http://localhost:8081/api/v2/setups';
 
-// todo actions
-// Add
 const ADD_USER_REQUEST = 'ADD_USER_REQUEST';
 const ADD_USER_SUCCESS = 'ADD_USER_SUCCESS';
 const ADD_USER_FAILURE = 'ADD_USER_FAILURE';
+
 const GET_USERS_REQUEST = 'GET_USERS_REQUEST';
 const GET_USERS_SUCCESS = 'GET_USERS_SUCCESS';
 const GET_USERS_FAILURE = 'GET_USERS_FAILURE';

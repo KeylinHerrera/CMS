@@ -19,12 +19,10 @@ function addUser(request, response) {
   let db_string = `mongodb://localhost:27017/${request.body.database}`;
   mongoose.connect(db_string);
 
-  console.log(request.body)
   let user = new SetUp();
   user.username = request.body.name;
   user.password = request.body.password;
- // user.database = request.body.database;
-  //Saves the new user and checks for errors
+
   user.save(function (error) {
     //Checks if an error happened
     if (error) {

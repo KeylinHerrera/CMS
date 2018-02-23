@@ -1,7 +1,9 @@
+// Imports Frameworks
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { func, array, bool } from 'prop-types';
 
+// Imports Modules
 import SetUpForm from './SetUpForm';
 import { addUser, getUsers } from './actions';
 

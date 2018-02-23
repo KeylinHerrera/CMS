@@ -1,20 +1,21 @@
 {
     "parser": "babel-eslint",
-    "extends": ["eslint:recommended","airbnb"],
+    "extends": [
+      "airbnb",
+      "eslint:recommended"
+    ],
     "env": {
-        "browser": true
-    },
-    "rules": {
-        "react/prefer-stateless-function": 0,
-        "react/jsx-filename-extension": 0,
-        "linebreak-style": 0,
-        "react/forbid-prop-types": 0,
-        "no-console": 0,
-        "arrow-body-style": 0
+      "browser": true
     },
     "plugins": [
-        "react",
-        "jsx-a11y",
-        "import"
-    ]
-}
+      "react",
+      "jsx-a11y",
+      "import"
+    ],
+    "rules": {
+      "react/prefer-stateless-function": 0,
+      "react/jsx-filename-extension": 0,
+      "linebreak-style": 0,
+      "react/forbid-prop-types": 0
+    }
+  }

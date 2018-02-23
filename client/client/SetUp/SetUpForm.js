@@ -1,6 +1,6 @@
 import React from 'react';
 import { func } from 'prop-types';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { Button, Input } from 'semantic-ui-react';
 
@@ -29,9 +29,9 @@ const SetUpForm = props => (
       </div>
 
       <div className="form-item">
-          <Link to='/Dashboard'>
-            <Button type="submit" className="btn-primary blue btn-empty" onClick={props.handleSubmit}>Submit</Button>
-          </Link>
+        <NavLink to='/Dashboard'>
+          <Button type="submit" className="btn-primary blue btn-empty" onClick={props.handleSubmit}>Submit</Button>
+        </NavLink>
       </div>
     </div>
   </div>

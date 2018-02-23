@@ -1,16 +1,14 @@
-/*
-    ./client/index.js
-    which is the webpack entry file
-*/
+// Imports Frameworks
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import Semantic from 'semantic-ui-css/semantic.min.css';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
+// Imports Store and App Classes
 import store from './store';
 import App from './App';
 
+// Requires Sass - Scss
 require('../sass/style.scss');
 
 ReactDOM.render(

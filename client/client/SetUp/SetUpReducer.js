@@ -1,5 +1,3 @@
-// Todo reducer
-
 const DEFAULT_STATE = {
   loading: false,
   users: [],
