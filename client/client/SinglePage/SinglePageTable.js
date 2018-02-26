@@ -9,31 +9,43 @@ import SinglePageTableItem from './SinglePageTableItem'
 const SinglePageTable = (props) => {
   
   return (
-    <table className="section__table">
-      <thead className="section__table-header">
-        <tr>
-          <td className="section__table-title">Tittle</td>
-          <td className="section__table-title">Text</td>
-          <td className="section__table-title">URL</td>
-        </tr>
-      </thead>
-      <tbody className="table-body">
-        {props.pages.map(page => <SinglePageTableItem key={page.id} page={page} onDelete={props.handleDelete}  onEdit={props.showFormEdit} />)}
-      </tbody>
-    </table>
+    <div>
+      <h2>All Pages</h2>
+      <table className="section__table ui celled table">
+        <thead className="section__table-header">
+          <tr>
+            <td className="section__table-title">Tittle</td>
+            <td className="section__table-title">Text</td>
+            <td className="section__table-title">URL</td>
+            <td className="">Show Details</td>
+          </tr>
+        </thead>
+        <tbody className="table-body">
+          {props.pages.map(page => (<SinglePageTableItem 
+            key={page.id} 
+            page={page} 
+            onDelete={props.handleDelete}  
+            onView={props.handleView} 
+            onDetailsView={props.handleViewDetails}
+          />))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
 SinglePageTable.propTypes = {
   pages: array,
   handleDelete: func,
-  showFormEdit: func,
+  handleView: func,
+  handleViewDetails: func
 };
 
 SinglePageTable.defaultProps = {
   pages: [],
   handleDelete: () => {},
-  showFormEdit: () => {},
+  handleView: () => {},
+  handleViewDetails: () => {}
 };
 
 export default SinglePageTable;

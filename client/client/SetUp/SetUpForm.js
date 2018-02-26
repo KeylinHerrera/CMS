@@ -30,7 +30,7 @@ const SetUpForm = props => (
 
       <div className="form-item">
         <NavLink to='/Dashboard'>
-          <Button type="submit" className="btn-primary blue btn-empty" onClick={props.handleSubmit}>Submit</Button>
+          <Button type="submit" className="tiny ui orange basic button btn-primary btn-empty" onClick={props.handleSubmit}>Submit</Button>
         </NavLink>
       </div>
     </div>
