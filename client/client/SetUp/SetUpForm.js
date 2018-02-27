@@ -1,9 +1,16 @@
+/** Imports Frameworks. */
 import React from 'react';
 import { func } from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
-import { Button, Input } from 'semantic-ui-react';
+import { Input } from 'semantic-ui-react';
 
+/**
+ * SetUp Form Module.
+ * Creates form for SetUp.
+ * @func handleSubmit, handleInputChange.
+ * @returns Form
+ */
 const SetUpForm = props => (
   <div className="form-container" id="form-container">
     <div className="form-basic">
@@ -28,20 +35,22 @@ const SetUpForm = props => (
         </label>
       </div>
 
-      <div className="form-item">
+      <div className="">
         <NavLink to='/Dashboard'>
-          <Button type="submit" className="tiny ui orange basic button btn-primary btn-empty" onClick={props.handleSubmit}>Submit</Button>
+          <button type="submit" className="btn btn-primary" onClick={props.handleSubmit}><p>Submit</p></button>
         </NavLink>
       </div>
     </div>
   </div>
 );
 
+/** Declares Props. */
 SetUpForm.propTypes = {
   handleSubmit: func,
   handleInputChange: func,
 };
 
+/** Exports the module. */
 SetUpForm.defaultProps = {
   handleSubmit: () => {},
   handleInputChange: () => {},

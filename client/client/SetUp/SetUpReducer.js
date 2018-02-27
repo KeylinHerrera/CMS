@@ -1,9 +1,11 @@
+/** Defines the Default State. */
 const DEFAULT_STATE = {
   loading: false,
   users: [],
   error: '',
 };
 
+/** Specifies how the application's state changes in response to actions sent to the store. */
 const users = (state = DEFAULT_STATE, action) => {
   switch (action.type) {
     case 'GET_USERS_REQUEST':
@@ -45,5 +47,5 @@ const users = (state = DEFAULT_STATE, action) => {
   }
 };
 
+/** Exports the module. */
 export default users;
-

@@ -1,0 +1,9 @@
+/* Mixim for Mobile First.
+ * Defines the min-width.
+ * Returns @content.
+ * Inclutes this mixim with @include query. */
+@mixin query($breakpoint) {
+  @media only screen and ("min-width": $breakpoint){
+    @content;
+  }
+}

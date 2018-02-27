@@ -1,0 +1,26 @@
+// General Btn Style 
+.btn{
+  background-color: #fff;
+  border-radius: 0.8rem;
+  font-size: 1.2rem;
+  letter-spacing: 1rem;
+  padding: 1rem 1.1rem;
+  text-transform: uppercase;
+}
+
+// Primary Btn
+.btn-primary{
+  border: 1px #F15B55 solid;
+
+  p{
+    color: #F15B55;
+  }
+}
+
+// Link Btn
+.btn-link{
+  background-color: none;
+  border: 0 none;
+  box-shadow: none;
+  padding: 0;
+}

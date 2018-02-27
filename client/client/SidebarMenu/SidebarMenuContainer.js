@@ -1,8 +1,12 @@
-// Imports Frameworks
+/** Imports Frameworks. */
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-
+/**
+ * Sidebar Menu Module.
+ * Creates a menu for the app navegation.
+ * @returns Nav
+ */
 const SidebarMenuContainer = () => (
   <div className="container">
     <div className="row">
@@ -12,8 +16,8 @@ const SidebarMenuContainer = () => (
           <nav className="header__nav">
             <ul className="">
               <li><NavLink className="nav__item" to='/Page'>Single Page</NavLink></li>
-              {/* <li><NavLink className="nav__item" to='/Media'>Media</NavLink></li>
-              <li><NavLink className="nav__item" to='/Header'>Header</NavLink></li> */}
+              <li><NavLink className="nav__item" to='/Content'>Content</NavLink></li>
+              <li><NavLink className="nav__item" to='/Media'>Media</NavLink></li>
             </ul>
           </nav>
         </div>
@@ -22,4 +26,5 @@ const SidebarMenuContainer = () => (
   </div>
 );
 
+/** Exports the module. */
 export default SidebarMenuContainer;
