@@ -1,9 +1,7 @@
-// Imports Frameworks
-// import uuid from 'uuid/v1';
-
-// API URL Constant
+/** API URL Constant. */
 const API_URL = 'http://localhost:8081/api/v2/pages'
 
+/** Action Types. */
 const ADD_PAGE_REQUEST = 'ADD_PAGE_REQUEST'
 const ADD_PAGE_SUCCESS = 'ADD_PAGE_SUCCESS'
 const ADD_PAGE_FAILURE = 'ADD_PAGE_FAILURE'
@@ -24,6 +22,10 @@ const GET_DATA_PAGE_REQUEST = 'GET_DATA_PAGE_REQUEST';
 const GET_DATA_PAGE_SUCCESS = 'GET_DATA_PAGE_SUCCESS';
 const GET_DATA_PAGE_FAILURE = 'GET_DATA_PAGE_FAILURE';
 
+/**
+ * Action Creator.
+ * @returns New Page Action.
+ */
 const addNewPage = page => (dispatch) => {
   dispatch({
     type: ADD_PAGE_REQUEST,
@@ -32,7 +34,6 @@ const addNewPage = page => (dispatch) => {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      id: uuid(),
       ...page,
     }),
   })
@@ -51,6 +52,11 @@ const addNewPage = page => (dispatch) => {
     });
 };
 
+
+/**
+ * Action Creator.
+ * @returns Get Pages Action.
+ */
 const getPages = () => {
   return function (dispatch) {
     dispatch({
@@ -73,19 +79,23 @@ const getPages = () => {
   };
 };
 
-const deletePage = id => (dispatch) => {
+
+/**
+ * Action Creator.
+ * @returns Delete Page Action.
+ */
+const deletePage = _id => (dispatch) => {
   dispatch({
     type: DELETE_PAGE_REQUEST,
-    id,
   });
-  fetch(`${API_URL}/${id}`, {
+  fetch(`${API_URL}/${_id}`, {
     method: 'DELETE',
   })
     .then(response => response.json())
     .then(() => {
       dispatch({
         type: DELETE_PAGE_SUCCESS,
-        id,
+        _id,
       });
     })
     .catch((error) => {
@@ -96,11 +106,16 @@ const deletePage = id => (dispatch) => {
     });
 };
 
+
+/**
+ * Action Creator.
+ * @returns Update Page Action.
+ */
 const updatePage = page => (dispatch) => {
   dispatch({
     type: UPDATE_PAGE_REQUEST,
   });
-  fetch(`${API_URL}/${page.id}`, {
+  fetch(`${API_URL}/${page._id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -111,7 +126,7 @@ const updatePage = page => (dispatch) => {
     .then(() => {
       dispatch({
         type: UPDATE_PAGE_SUCCESS,
-        id: page.id,
+        _id: page._id,
       });
     })
     .catch((error) => {
@@ -122,11 +137,16 @@ const updatePage = page => (dispatch) => {
     });
 };
 
+
+/**
+ * Action Creator.
+ * @returns Get Data Page for Details Action.
+ */
 const getDataPage = page => (dispatch) => {
   dispatch({
     type: GET_DATA_PAGE_REQUEST,
   });
-  fetch(`${API_URL}/${page.id}`, {
+  fetch(`${API_URL}/${page._id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -137,7 +157,7 @@ const getDataPage = page => (dispatch) => {
     .then(() => {
       dispatch({
         type: GET_DATA_PAGE_SUCCESS,
-        id: page.id,
+        _id: page._id,
       });
     })
     .catch((error) => {
@@ -148,6 +168,7 @@ const getDataPage = page => (dispatch) => {
     });
 };
 
+/** Exports modules. */
 module.exports = {
   addNewPage,
   getPages,

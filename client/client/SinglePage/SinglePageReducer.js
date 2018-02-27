@@ -1,10 +1,11 @@
+/** Defines the Default State. */
 const DEFAULT_STATE = {
   loading: false,
   pages: [],
-  view: true,
   error: '',
 };
 
+/** Specifies how the application's state changes in response to actions sent to the store. */
 const pages = (state = DEFAULT_STATE, action) => {
   switch (action.type) {
     case 'GET_PAGES_REQUEST':
@@ -51,7 +52,7 @@ const pages = (state = DEFAULT_STATE, action) => {
         ...state,
         loading: false,
         pages: state.pages.filter((item) => {
-          return item.id !== action.id;
+          return item._id !== action._id;
         }),
       };
     case 'DELETE_PAGE_FAILURE':
@@ -69,7 +70,7 @@ const pages = (state = DEFAULT_STATE, action) => {
         ...state,
         loading: false,
         todos: state.todos.map((item) => {
-          if (item.id == action.id) {
+          if (item._id == action._id) {
             item.done = true;
           }
           return item;
@@ -84,20 +85,17 @@ const pages = (state = DEFAULT_STATE, action) => {
       return {
         ...state,
         loading: true,
-        view: true,
       };
     case 'GET_DATA_PAGES_SUCCESS':
       return {
         ...state,
         loading: false,
-        view: true,
         pages: action.pages,
       };
     case 'GET_DATA_PAGES_FAILURE':
       return {
         ...state,
         loading: false,
-        view: true,
         error: action.error,
       };
     default:
@@ -105,5 +103,5 @@ const pages = (state = DEFAULT_STATE, action) => {
   }
 };
 
+/** Exports the module. */
 export default pages;
-

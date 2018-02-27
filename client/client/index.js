@@ -1,16 +1,20 @@
-// Imports Frameworks
+/** Imports Frameworks. */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-// Imports Store and App Classes
+/** Imports Store and App Classes. */
 import store from './store';
 import App from './App';
 
-// Requires Sass - Scss
+/** Requires Sass - Scss. */
 require('../sass/style.scss');
 
+/**
+ * Renders the DOM
+ * @returns App
+ */
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>

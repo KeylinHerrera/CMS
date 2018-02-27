@@ -1,11 +1,16 @@
+/** Imports Frameworks. */
 import React from 'react';
 import { array, func } from 'prop-types';
 
-// import { Table, TableBody, TableRow, TableHeader, TableHeaderColumn,} from 'material-ui/Table';
-
+/** Imports Modules. */
 import SinglePageTableItem from './SinglePageTableItem'
 
-
+/**
+ * Single Page Table Module.
+ * Creates table structure and calls the functions since Single Page Container.
+ * @func handleDelete, handleViewDetails
+ * @returns Table Structure, thead and tbody
+ */
 const SinglePageTable = (props) => {
   
   return (
@@ -18,14 +23,14 @@ const SinglePageTable = (props) => {
             <td className="section__table-title">Text</td>
             <td className="section__table-title">URL</td>
             <td className="">Show Details</td>
+            <td className="section__table-title">Delete</td>
           </tr>
         </thead>
         <tbody className="table-body">
           {props.pages.map(page => (<SinglePageTableItem 
-            key={page.id} 
+            key={page._id} 
             page={page} 
             onDelete={props.handleDelete}  
-            onView={props.handleView} 
             onDetailsView={props.handleViewDetails}
           />))}
         </tbody>
@@ -34,18 +39,18 @@ const SinglePageTable = (props) => {
   );
 }
 
+/** Declares Props */
 SinglePageTable.propTypes = {
   pages: array,
   handleDelete: func,
-  handleView: func,
   handleViewDetails: func
 };
 
 SinglePageTable.defaultProps = {
   pages: [],
   handleDelete: () => {},
-  handleView: () => {},
   handleViewDetails: () => {}
 };
 
+/** Exports the module. */
 export default SinglePageTable;

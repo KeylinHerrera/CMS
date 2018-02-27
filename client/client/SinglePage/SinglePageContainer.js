@@ -1,38 +1,56 @@
-// Imports Frameworks
+/** Imports Frameworks. */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { func, array } from 'prop-types';
 
-// Imports Modules
+/** Imports Modules. */
 import SinglePageForm from './SinglePageForm';
 import SinglePageTable from './SinglePageTable';
 import SinglePageDetails from './SinglePageDetails';
 
+/** Imports from Actions. */
 import { addNewPage, getPages, updatePage, deletePage, getDataPage } from './actions';
 
+/**
+ * Single Page Container Module.
+ * Creates the State for Pages.
+ * Get Data, Submit, Done, Update, View Methods.
+ * @returns Basic base from App.
+ */
 class SinglePageContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      /**
+       * Form Values.
+       * @type {string}.
+       */
       newSinglePageTittle: '',
       newSinglePageText: '',
       newSinglePageURL: '',
+      /**
+       * Shows Details Module.
+       * @type {boolean}.
+       */
+      viewDetail: false,
     };
 
+    /** Calls all methods since model. */
     this.render = this.render.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDone = this.handleDone.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
-    this.handleView = this.handleView.bind(this);
     this.handleViewDetails = this.handleViewDetails.bind(this);
   }
 
+  /** Loads data. */
   componentDidMount() {
     this.props.loadData();
   }
 
+  /** Stays tuned for input changes*/
   handleInputChange(event) {
     const target = event.target;
     const value = target.value;
@@ -43,49 +61,40 @@ class SinglePageContainer extends Component {
     });
   }
 
+  /** Gets a input data and loads these in Data Base. */
   handleSubmit() {
     const page = {};
     page.title = this.state.newSinglePageTittle;
     page.text = this.state.newSinglePageText;
     page.url = this.state.newSinglePageURL;
+    page.view = this.viewDetail;
     this.props.addNewPage(page);
 
-    this.setState = ({
+    this.setState ({
       newSinglePageTittle: '',
       newSinglePageText: '',
       newSinglePageURL: '',
+      viewDetail: false,
     });
   }
 
+  /**
+   * Changes the View Details
+   * @type {boolean}
+   */
+  handleViewDetails() {
+    this.state.viewDetail = true
+  }
 
+  /** */ 
   handleDone(page) {
     this.props.updatePage(page)
   }
 
+  /** Deletes Data. */
   handleDelete(ev){
     ev.preventDefault();
     this.props.deletePage(ev.target.parentNode.parentNode.getAttribute('id'))
-  }
-
-  handleView(page){
-    this.props.updatePage(page)
-  }
-
-  handleViewDetails(ev){
-    ev.preventDefault();
-    console.log('vwDe')
-  }
-
-  showDetails() {
-    const details = document.getElementById("page-details");
-
-      if (details.style.display == "block") {
-        details.style.display = "none";
-        // document.getElementById('formSpan').innerHTML="New";
-      } else {
-        details.style.display = "block";
-        // document.getElementById('formSpan').innerHTML="Close Form";
-      }
   }
 
   render() {
@@ -99,15 +108,17 @@ class SinglePageContainer extends Component {
         <SinglePageTable 
           pages={this.props.pages}
           showDetails={this.showDetails}
+          handleViewDetails={this.handleViewDetails}
+          handleDelete={this.handleDelete}
         />
         <SinglePageDetails 
           handleView={this.handleView}
-          handleViewDetails={this.handleViewDetails}
         />
       </div>);
   }
 }
 
+/** Subscribes new component to Redux Store Updates. */
 function mapStateToProps(state) {
   return {
     loading: state.loading,
@@ -115,6 +126,7 @@ function mapStateToProps(state) {
   };
 }
 
+/** All function inside this are Redux actions creator. */
 function mapDispatchToProps(dispatch) {
   return {
     addNewPage: value => dispatch(addNewPage(value)),
@@ -127,6 +139,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
+/** Declares Props. */
 SinglePageContainer.propTypes = {
   pages: array,
   addNewPage: func,
@@ -145,4 +158,5 @@ SinglePageContainer.defaultProps = {
   getDataPage: () => {}
 };
 
+/** Exports to a module. */
 export default connect(mapStateToProps, mapDispatchToProps)(SinglePageContainer);

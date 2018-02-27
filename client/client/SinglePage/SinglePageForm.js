@@ -1,8 +1,15 @@
+/** Imports Frameworks. */
 import React from 'react';
 import { func } from 'prop-types';
 
 import { Button, Input } from 'semantic-ui-react';
 
+/**
+ * Single Page Form Module.
+ * Creates form for Add New Page.
+ * @func handleSubmit, handleInputChange.
+ * @returns Form
+ */
 const SinglePageForm = props => (
   <div className="form-container" id="form-container">
     <div className="form-basic">
@@ -35,6 +42,7 @@ const SinglePageForm = props => (
   </div>
 );
 
+/** Declares Props. */
 SinglePageForm.propTypes = {
   handleSubmit: func,
   handleInputChange: func,
@@ -45,5 +53,5 @@ SinglePageForm.defaultProps = {
   handleInputChange: () => {},
 };
 
-
+/** Exports the module. */
 export default SinglePageForm;

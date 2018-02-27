@@ -1,10 +1,14 @@
+/** Imports Frameworks. */
 import React from 'react';
 import { object } from 'prop-types';
 
-// import { TableRow, TableRowColumn } from 'material-ui/Table';
-
+/**
+ * Single Page Details Module.
+ * Gets Data and Prints this data.
+ * @func handleSubmit, handleInputChange.
+ * @returns Form.
+ */
 const SinglePageDetails = (props) => {
-  console.log(props)
   return (
     <div>
       <h2>Details</h2>
@@ -15,6 +19,7 @@ const SinglePageDetails = (props) => {
   );
 }
 
+/** Declares Props. */
 SinglePageDetails.propTypes = {
   page: object,
 }
@@ -23,4 +28,5 @@ SinglePageDetails.defaultProps = {
   page: {},
 }
 
+/** Exports the Module. */
 export default SinglePageDetails;

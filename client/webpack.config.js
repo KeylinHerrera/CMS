@@ -16,6 +16,7 @@ module.exports = {
   output: {
     path: path.resolve('dist'),
     filename: 'index_bundle.js',
+    publicPath: '/',
   },
   module: {
     loaders: [
@@ -28,6 +29,7 @@ module.exports = {
   // Port
   devServer: {
     port: 9090,
+    historyApiFallback: true,
   },
   // Webpack Plugin
   plugins: [HtmlWebpackPluginConfig],

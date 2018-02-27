@@ -1,7 +1,10 @@
+/** Imports Frameworks. */
 const mongoose = require('mongoose')
 
+/** Imports Modules. */
 const Page = require('../models/Page')
 
+/** Gets Pages */
 function getPage(req, res) {
   Page.find()
     .exec((err, pages) => {
@@ -13,10 +16,9 @@ function getPage(req, res) {
     })
 }
 
+/** Adds Page */
 function addPage(req, res) {
-
   console.log('into add Page controller:', req.body)
-  
   const page = new Page(req.body);
 
   page.save( err => {
@@ -26,7 +28,29 @@ function addPage(req, res) {
   })
 }
 
+function deletePage(req, res){
+  // Page.findById(req.params.page_id, function(err, page){
+  //   if (err) {
+  //     res.send(err);
+  //   }
+
+  //   res.json(page);
+  // });
+
+  Page.remove({
+      _id: req.params.page_id
+    }, function (err, page) {
+      if (err) {
+        res.send(err)
+      }
+      res.json({ message: 'Successfully deleted' });
+    }
+  )
+}
+
+/** Exports getPage and addPage Modules. */
 module.exports = {
   getPage,
   addPage,
+  deletePage,
 }
