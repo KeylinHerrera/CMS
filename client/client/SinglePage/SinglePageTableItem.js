@@ -11,7 +11,6 @@ const SinglePageTableItem = (props) => {
   return (
     <tr id={props.page._id}>
       <td className="section__table-item">{props.page.title}</td>
-      <td className="section__table-item">{props.page.text}</td>
       <td className="section__table-item">{props.page.url}</td>
       <td className="section__table-item"> <button onClick={props.onDetailsView}>Details</button></td>
       <td className="section__table-item"> <button onClick={props.onDelete}>Delete</button></td>

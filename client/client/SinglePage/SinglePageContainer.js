@@ -39,6 +39,7 @@ class SinglePageContainer extends Component {
     this.render = this.render.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleInputChangeEditor = this.handleInputChangeEditor.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDone = this.handleDone.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
@@ -61,14 +62,25 @@ class SinglePageContainer extends Component {
     });
   }
 
+  /** Stays tuned for TEXT input changes*/
+  handleInputChangeEditor(evt) {
+      var newContent = evt.editor.getData();
+
+      this.setState({
+        newSinglePageText: newContent
+      })
+  }
+
   /** Gets a input data and loads these in Data Base. */
-  handleSubmit() {
+  handleSubmit() { //evt
     const page = {};
     page.title = this.state.newSinglePageTittle;
     page.text = this.state.newSinglePageText;
     page.url = this.state.newSinglePageURL;
     page.view = this.viewDetail;
     this.props.addNewPage(page);
+
+    // var newContent = evt.editor.getData();
 
     this.setState ({
       newSinglePageTittle: '',
@@ -104,6 +116,8 @@ class SinglePageContainer extends Component {
         <SinglePageForm
           handleSubmit={this.handleSubmit}
           handleInputChange={this.handleInputChange}
+          handleInputChangeEditor={this.handleInputChangeEditor}
+          item={this.state}
         />
         <SinglePageTable 
           pages={this.props.pages}

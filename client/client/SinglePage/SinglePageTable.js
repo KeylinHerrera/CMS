@@ -20,7 +20,6 @@ const SinglePageTable = (props) => {
         <thead className="section__table-header">
           <tr>
             <td className="section__table-title">Tittle</td>
-            <td className="section__table-title">Text</td>
             <td className="section__table-title">URL</td>
             <td className="">Show Details</td>
             <td className="section__table-title">Delete</td>

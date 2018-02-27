@@ -1,6 +1,7 @@
 /** Imports Frameworks. */
 import React from 'react';
-import { func } from 'prop-types';
+import { func, object, string } from 'prop-types';
+import CKEditor from "react-ckeditor-component";
 
 import { Button, Input } from 'semantic-ui-react';
 
@@ -23,7 +24,14 @@ const SinglePageForm = props => (
       </div>
       <div className="form-item">
         <label htmlFor="newSinglePageText">
-          <Input type="text" name="newSinglePageText" onChange={props.handleInputChange} id="newSinglePageText" required="true" placeholder="Add text" />
+          <CKEditor 
+            id="newSinglePageText"
+            activeClass="p10" 
+            content={props.item.newSinglePageText} 
+            events={{
+              "change": props.handleInputChangeEditor
+            }}
+          />
           <p>Add text.</p>
         </label>
 
@@ -44,13 +52,19 @@ const SinglePageForm = props => (
 
 /** Declares Props. */
 SinglePageForm.propTypes = {
+  item: object,
+  newSinglePageText: string,
   handleSubmit: func,
   handleInputChange: func,
+  handleInputChangeEditor: func,
 };
 
 SinglePageForm.defaultProps = {
+  item: {},
+  newSinglePageText:'',
   handleSubmit: () => {},
   handleInputChange: () => {},
+  handleInputChangeEditor: () => {},
 };
 
 /** Exports the module. */
