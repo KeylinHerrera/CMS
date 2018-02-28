@@ -20,29 +20,29 @@ const SinglePageFormEdit = (props) => {
           <h2>Add New Page</h2>
           <div className="form-item">
             <label htmlFor="newSinglePageTitle">
-              <Input type="text" name="newSinglePageTitle" onChange={props.handleInputChange} id="newSinglePageTitle" required="true" value={props.item.newSinglePageTitle} placeholder="Page Name" />
+              <Input type="content" name="newSinglePageTitle" onChange={props.handleInputChange} id="newSinglePageTitle" required="true" value={props.item.newSinglePageTitle} placeholder="Page Name" />
               {/* <p>Your page name.</p> */}
             </label>
           </div>
 
           <div className="form-item">
             <label htmlFor="newSinglePageURL">
-              <Input type="text" name="newSinglePageURL" onChange={props.handleInputChange} id="newSinglePageURL" required="true" value={props.item.newSinglePageURL} placeholder="URL" />
+              <Input type="content" name="newSinglePageURL" onChange={props.handleInputChange} id="newSinglePageURL" required="true" value={props.item.newSinglePageURL} placeholder="URL" />
               {/* <p>URL.</p> */}
             </label>
           </div>
           
           <div className="form-item">
-            <label htmlFor="newSinglePageText">
+            <label htmlFor="newSinglePageContent">
               <CKEditor 
-                id="newSinglePageText"
+                id="newSinglePageContent"
                 activeClass="p10" 
-                content={props.item.newSinglePageText} 
+                content={props.item.newSinglePageContent} 
                 events={{
                   "change": props.handleInputChangeEditor
                 }}
               />
-              {/* <p>Add text.</p> */}
+              {/* <p>Add content.</p> */}
             </label>
           </div>
 
@@ -58,7 +58,7 @@ const SinglePageFormEdit = (props) => {
 /** Declares Props. */
 SinglePageFormEdit.propTypes = {
   item: object,
-  newSinglePageText: string,
+  newSinglePageContent: string,
   onSave: func,
   handleInputChange: func,
   handleInputChangeEditor: func,
@@ -66,7 +66,7 @@ SinglePageFormEdit.propTypes = {
 
 SinglePageFormEdit.defaultProps = {
   item: {},
-  newSinglePageText:'',
+  newSinglePageContent:'',
   onSave: () => {},
   handleInputChange: () => {},
   handleInputChangeEditor: () => {},

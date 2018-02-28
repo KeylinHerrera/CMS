@@ -49,7 +49,7 @@ function updatePage(req, res){
 
       page.title = req.body.title;
       page.url = req.body.url;
-      page.text = req.body.text;
+      page.content = req.body.content;
 
       // save the bear
       page.save(function(err) {

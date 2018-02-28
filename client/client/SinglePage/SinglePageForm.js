@@ -17,29 +17,29 @@ const SinglePageForm = props => (
       <h2>Add New Page</h2>
       <div className="form-item">
         <label htmlFor="newSinglePageTitle">
-          <Input type="text" name="newSinglePageTitle" onChange={props.handleInputChange} id="newSinglePageTitle" required="true" placeholder="Page Name" />
+          <Input type="content" name="newSinglePageTitle" onChange={props.handleInputChange} id="newSinglePageTitle" required="true" placeholder="Page Name" />
           {/* <p>Your page name.</p> */}
         </label>
       </div>
 
       <div className="form-item">
         <label htmlFor="newSinglePageURL">
-          <Input type="text" name="newSinglePageURL" onChange={props.handleInputChange} id="newSinglePageURL" required="true" placeholder="URL" />
+          <Input type="content" name="newSinglePageURL" onChange={props.handleInputChange} id="newSinglePageURL" required="true" placeholder="URL" />
           {/* <p>URL.</p> */}
         </label>
       </div>
       
       <div className="form-item">
-        <label htmlFor="newSinglePageText">
+        <label htmlFor="newSinglePageContent">
           <CKEditor 
-            id="newSinglePageText"
+            id="newSinglePageContent"
             activeClass="p10" 
-            content={props.item.newSinglePageText} 
+            content={props.item.newSinglePageContent} 
             events={{
               "change": props.handleInputChangeEditor
             }}
           />
-          {/* <p>Add text.</p> */}
+          {/* <p>Add content.</p> */}
         </label>
       </div>
 
@@ -53,7 +53,7 @@ const SinglePageForm = props => (
 /** Declares Props. */
 SinglePageForm.propTypes = {
   item: object,
-  newSinglePageText: string,
+  newSinglePageContent: string,
   handleSubmit: func,
   handleInputChange: func,
   handleInputChangeEditor: func,
@@ -61,7 +61,7 @@ SinglePageForm.propTypes = {
 
 SinglePageForm.defaultProps = {
   item: {},
-  newSinglePageText:'',
+  newSinglePageContent:'',
   handleSubmit: () => {},
   handleInputChange: () => {},
   handleInputChangeEditor: () => {},

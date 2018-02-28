@@ -5,7 +5,7 @@ import { object, func } from 'prop-types';
 /**
  * Single Page Table Item Module.
  * Gets value for form and prints this data.
- * @returns titlle, text and URL values
+ * @returns title, content and URL values
  */
 const SinglePageTableItem = (props) => {
   return (

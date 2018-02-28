@@ -28,7 +28,7 @@ class SinglePageContainer extends Component {
        */
       newSinglePageTitle: '',
       newSinglePageURL: '',
-      newSinglePageText: '',
+      newSinglePageContent: '',
       _id: '',
       /**
        * Shows Details Module.
@@ -77,7 +77,7 @@ class SinglePageContainer extends Component {
       var newContent = ev.editor.getData();
 
       this.setState({
-        newSinglePageText: newContent
+        newSinglePageContent: newContent
       })
   }
 
@@ -86,13 +86,13 @@ class SinglePageContainer extends Component {
     const page = {};
     page.title = this.state.newSinglePageTitle;
     page.url = this.state.newSinglePageURL;
-    page.text = this.state.newSinglePageText;
+    page.content = this.state.newSinglePageContent;
     this.props.addNewPage(page);
 
     this.setState ({
       newSinglePageTitle: '',
       newSinglePageURL: '',
-      newSinglePageText: '',
+      newSinglePageContent: '',
     });
   }
 
@@ -107,7 +107,7 @@ class SinglePageContainer extends Component {
     this.setState ({
       newSinglePageTitle: page.title,
       newSinglePageURL: page.url,      
-      newSinglePageText: page.text,
+      newSinglePageContent: page.content,
       _id: page._id,
       isEditing: !this.state.isEditing
     });
@@ -122,7 +122,7 @@ class SinglePageContainer extends Component {
 
     page.title = this.state.newSinglePageTitle;
     page.url = this.state.newSinglePageURL;
-    page.text = this.state.newSinglePageText;
+    page.content = this.state.newSinglePageContent;
     page._id = this.state._id;
 
     page[field] = event.target.value;
@@ -131,7 +131,7 @@ class SinglePageContainer extends Component {
     return this.setState({
       newSinglePageTitle: '',
       newSinglePageURL: '',
-      newSinglePageText: '',
+      newSinglePageContent: '',
       _id: '',
       isEditing: false,
     });

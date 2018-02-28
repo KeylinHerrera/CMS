@@ -12,11 +12,10 @@ const DB_QUERY_STRING = process.env.DB
 
 /** Imports Modules. */
 const setupRoutes = require('./routes/setups')
-const pageRoutes = require('./routes/pages')
-const contentRoutes = require('./routes/contents')
-
 // const logInRoutes = require('./routes/logIns')
-// const mediaRoutes = require('./routes/media')
+
+const pageRoutes = require('./routes/pages')
+// const contentRoutes = require('./routes/contents')
 
 const app = express()
 
@@ -40,7 +39,7 @@ app.get('/', (req, res) => {
 /** Uses predefined URL in client */
 app.use('/api/v2/setups', setupRoutes)
 app.use('/api/v2/pages', pageRoutes)
-app.use('/api/v2/contents', contentRoutes)
+// app.use('/api/v2/contents', contentRoutes)
 
 // app.use('/api/v2/logIns', logInRoutes)
 // app.use('/api/v2/media', mediaRoutes)

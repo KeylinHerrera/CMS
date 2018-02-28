@@ -128,7 +128,7 @@ const updatePage = page => (dispatch) => {
         type: UPDATE_PAGE_SUCCESS,
         title: page.title,
         url: page.url,
-        text: page.text,
+        content: page.content,
         _id: page._id,
       });
     })

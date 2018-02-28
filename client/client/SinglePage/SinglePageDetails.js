@@ -13,7 +13,7 @@ const SinglePageDetails = (props) => {
     <div>
       <h2>Details</h2>
       <h3>{props.page.title}</h3>
-      <p>{props.page.text}</p>
+      <p>{props.page.content}</p>
       <strong>{props.page.url}</strong>
     </div>
   );

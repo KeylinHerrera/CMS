@@ -75,7 +75,7 @@ const pages = (state = DEFAULT_STATE, action) => {
           console.log('atun')
           item.title = action.title;
           item.url = action.url;
-          item.text = action.text;
+          item.content = action.content;
         }
         return item;
       }),
