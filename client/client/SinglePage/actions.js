@@ -126,6 +126,9 @@ const updatePage = page => (dispatch) => {
     .then(() => {
       dispatch({
         type: UPDATE_PAGE_SUCCESS,
+        title: page.title,
+        url: page.url,
+        text: page.text,
         _id: page._id,
       });
     })

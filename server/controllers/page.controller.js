@@ -29,13 +29,6 @@ function addPage(req, res) {
 }
 
 function deletePage(req, res){
-  // Page.findById(req.params.page_id, function(err, page){
-  //   if (err) {
-  //     res.send(err);
-  //   }
-
-  //   res.json(page);
-  // });
 
   Page.remove({
       _id: req.params.page_id
@@ -48,9 +41,31 @@ function deletePage(req, res){
   )
 }
 
+function updatePage(req, res){
+   Page.findById(req.params.page_id, function(err, page) {
+
+      if (err)
+        res.send(err);
+
+      page.title = req.body.title;
+      page.url = req.body.url;
+      page.text = req.body.text;
+
+      // save the bear
+      page.save(function(err) {
+        if (err)
+          res.send(err);
+        else
+        res.json({ message: 'Page updated!' });
+      });
+
+   })
+}
+
 /** Exports getPage and addPage Modules. */
 module.exports = {
   getPage,
   addPage,
   deletePage,
+  updatePage
 }

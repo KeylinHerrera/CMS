@@ -8,7 +8,7 @@ import { Button, Input } from 'semantic-ui-react';
 /**
  * Single Page Form Module.
  * Creates form for Add New Page.
- * @func handleSubmit, handleInputChange.
+ * @func handleSubmit, handleInputChange and handleInputChangeEditor.
  * @returns Form
  */
 const SinglePageForm = props => (
@@ -16,12 +16,19 @@ const SinglePageForm = props => (
     <div className="form-basic">
       <h2>Add New Page</h2>
       <div className="form-item">
-        <label htmlFor="newSinglePageTittle">
-          <Input type="text" name="newSinglePageTittle" onChange={props.handleInputChange} id="newSinglePageTittle" required="true" placeholder="Page Name" />
-          <p>Your page name.</p>
+        <label htmlFor="newSinglePageTitle">
+          <Input type="text" name="newSinglePageTitle" onChange={props.handleInputChange} id="newSinglePageTitle" required="true" placeholder="Page Name" />
+          {/* <p>Your page name.</p> */}
         </label>
-
       </div>
+
+      <div className="form-item">
+        <label htmlFor="newSinglePageURL">
+          <Input type="text" name="newSinglePageURL" onChange={props.handleInputChange} id="newSinglePageURL" required="true" placeholder="URL" />
+          {/* <p>URL.</p> */}
+        </label>
+      </div>
+      
       <div className="form-item">
         <label htmlFor="newSinglePageText">
           <CKEditor 
@@ -32,14 +39,7 @@ const SinglePageForm = props => (
               "change": props.handleInputChangeEditor
             }}
           />
-          <p>Add text.</p>
-        </label>
-
-      </div>
-      <div className="form-item">
-        <label htmlFor="newSinglePageURL">
-          <Input type="text" name="newSinglePageURL" onChange={props.handleInputChange} id="newSinglePageURL" required="true" placeholder="URL" />
-          <p>URL.</p>
+          {/* <p>Add text.</p> */}
         </label>
       </div>
 

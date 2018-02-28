@@ -19,9 +19,10 @@ const SinglePageTable = (props) => {
       <table className="section__table ui celled table">
         <thead className="section__table-header">
           <tr>
-            <td className="section__table-title">Tittle</td>
+            <td className="section__table-title">Title</td>
             <td className="section__table-title">URL</td>
             <td className="">Show Details</td>
+            <td className="section__table-title">Edit</td>
             <td className="section__table-title">Delete</td>
           </tr>
         </thead>
@@ -29,6 +30,7 @@ const SinglePageTable = (props) => {
           {props.pages.map(page => (<SinglePageTableItem 
             key={page._id} 
             page={page} 
+            onEdit={props.toogleEdit}
             onDelete={props.handleDelete}  
             onDetailsView={props.handleViewDetails}
           />))}
@@ -42,13 +44,15 @@ const SinglePageTable = (props) => {
 SinglePageTable.propTypes = {
   pages: array,
   handleDelete: func,
-  handleViewDetails: func
+  handleViewDetails: func,
+  toogleEdit: func
 };
 
 SinglePageTable.defaultProps = {
   pages: [],
   handleDelete: () => {},
-  handleViewDetails: () => {}
+  handleViewDetails: () => {},
+  toogleEdit: () => {}
 };
 
 /** Exports the module. */

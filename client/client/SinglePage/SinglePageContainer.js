@@ -5,11 +5,12 @@ import { func, array } from 'prop-types';
 
 /** Imports Modules. */
 import SinglePageForm from './SinglePageForm';
+import SinglePageFormEdit from './SinglePageFormEdit';
 import SinglePageTable from './SinglePageTable';
 import SinglePageDetails from './SinglePageDetails';
 
 /** Imports from Actions. */
-import { addNewPage, getPages, updatePage, deletePage, getDataPage } from './actions';
+import { addNewPage, getPages, updatePage, deletePage } from './actions';
 
 /**
  * Single Page Container Module.
@@ -25,25 +26,35 @@ class SinglePageContainer extends Component {
        * Form Values.
        * @type {string}.
        */
-      newSinglePageTittle: '',
-      newSinglePageText: '',
+      newSinglePageTitle: '',
       newSinglePageURL: '',
+      newSinglePageText: '',
+      _id: '',
       /**
        * Shows Details Module.
        * @type {boolean}.
        */
+      isEditing: false, 
       viewDetail: false,
     };
 
     /** Calls all methods since model. */
     this.render = this.render.bind(this);
-    this.componentDidMount = this.componentDidMount.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleInputChangeEditor = this.handleInputChangeEditor.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleDone = this.handleDone.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
-    this.handleViewDetails = this.handleViewDetails.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this); //
+
+    /** Handles */
+    this.handleInputChange = this.handleInputChange.bind(this); //
+    this.handleInputChangeEditor = this.handleInputChangeEditor.bind(this); //
+    this.handleSubmit = this.handleSubmit.bind(this); //
+    this.handleDelete = this.handleDelete.bind(this); //
+    this.handleViewDetails = this.handleViewDetails.bind(this); //
+
+    /** Toogles */
+    this.toogleEdit = this.toogleEdit.bind(this); 
+
+    /** Save */
+    this.onSave = this.onSave.bind(this); 
+   
   }
 
   /** Loads data. */
@@ -51,9 +62,9 @@ class SinglePageContainer extends Component {
     this.props.loadData();
   }
 
-  /** Stays tuned for input changes*/
-  handleInputChange(event) {
-    const target = event.target;
+   /** Stays tuned for input changes*/
+   handleInputChange(ev) {
+    const target = ev.target;
     const value = target.value;
     const name = target.name;
 
@@ -63,8 +74,8 @@ class SinglePageContainer extends Component {
   }
 
   /** Stays tuned for TEXT input changes*/
-  handleInputChangeEditor(evt) {
-      var newContent = evt.editor.getData();
+  handleInputChangeEditor(ev) {
+      var newContent = ev.editor.getData();
 
       this.setState({
         newSinglePageText: newContent
@@ -74,20 +85,24 @@ class SinglePageContainer extends Component {
   /** Gets a input data and loads these in Data Base. */
   handleSubmit() { //evt
     const page = {};
-    page.title = this.state.newSinglePageTittle;
-    page.text = this.state.newSinglePageText;
+    page.title = this.state.newSinglePageTitle;
     page.url = this.state.newSinglePageURL;
-    page.view = this.viewDetail;
+    page.text = this.state.newSinglePageText;
+    // page.view = this.viewDetail;
     this.props.addNewPage(page);
 
-    // var newContent = evt.editor.getData();
-
     this.setState ({
-      newSinglePageTittle: '',
-      newSinglePageText: '',
+      newSinglePageTitle: '',
       newSinglePageURL: '',
+      newSinglePageText: '',
       viewDetail: false,
     });
+  }
+
+   /** Deletes Data. */
+   handleDelete(ev){
+    ev.preventDefault();
+    this.props.deletePage(ev.target.parentNode.parentNode.getAttribute('id'))
   }
 
   /**
@@ -98,32 +113,82 @@ class SinglePageContainer extends Component {
     this.state.viewDetail = true
   }
 
-  /** */ 
-  handleDone(page) {
-    this.props.updatePage(page)
+  /** Open Form Edit */
+  toogleEdit(page) { 
+    this.setState ({
+      newSinglePageTitle: page.title,
+      newSinglePageURL: page.url,      
+      newSinglePageText: page.text,
+      _id: page._id,
+      isEditing: !this.state.isEditing
+    });
+
+    console.log('edit', this.state.isEditing)
   }
 
-  /** Deletes Data. */
-  handleDelete(ev){
-    ev.preventDefault();
-    this.props.deletePage(ev.target.parentNode.parentNode.getAttribute('id'))
+  /** Edits the data */
+  onSave(event){
+    const field = event.target.name;
+    const page = {};
+
+    page.title = this.state.newSinglePageTitle;
+    page.url = this.state.newSinglePageURL;
+    page.text = this.state.newSinglePageText;
+    page._id = this.state._id;
+
+    page[field] = event.target.value;
+    this.props.updatePage(page);
+
+    return this.setState({
+      newSinglePageTitle: '',
+      newSinglePageURL: '',
+      newSinglePageText: '',
+      _id: '',
+      isEditing: false,
+    });
   }
+
 
   render() {
+    /**
+    * Shows the Edit Form when the state is isEditing.
+    * @returns Single Page Form Edit.
+    */
+    if (this.state.isEditing){ 
+      return (
+        <div>
+          <h1> New Page </h1>
+          <SinglePageFormEdit
+            item={this.state}
+            onSave={this.onSave}
+            handleInputChange={this.handleInputChange}
+            handleInputChangeEditor={this.handleInputChangeEditor} 
+          />
+        </div>
+      )
+    }
+
+    /**
+    * @returns Single Page Form and Table.
+    */
     return (
       <div>
         <h1> New Page </h1>
         <SinglePageForm
+          item={this.state}
           handleSubmit={this.handleSubmit}
           handleInputChange={this.handleInputChange}
           handleInputChangeEditor={this.handleInputChangeEditor}
-          item={this.state}
         />
+
         <SinglePageTable 
           pages={this.props.pages}
+          toogleEdit={this.toogleEdit}
+          handleDelete={this.handleDelete}
           showDetails={this.showDetails}
           handleViewDetails={this.handleViewDetails}
-          handleDelete={this.handleDelete}
+          
+          
         />
         <SinglePageDetails 
           handleView={this.handleView}
@@ -149,7 +214,7 @@ function mapDispatchToProps(dispatch) {
     },
     updatePage: (page) => dispatch(updatePage(page)),
     deletePage: (page) => dispatch(deletePage(page)),
-    getDataPage: (page) => dispatch(getDataPage(page))
+    getDataPage: (page) => dispatch(getDataPage(page)),
   };
 }
 

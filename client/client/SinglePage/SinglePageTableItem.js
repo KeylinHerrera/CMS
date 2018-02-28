@@ -13,6 +13,7 @@ const SinglePageTableItem = (props) => {
       <td className="section__table-item">{props.page.title}</td>
       <td className="section__table-item">{props.page.url}</td>
       <td className="section__table-item"> <button onClick={props.onDetailsView}>Details</button></td>
+      <td className="section__table-item"> <button onClick={() =>props.onEdit(props.page)}>Edit</button></td>
       <td className="section__table-item"> <button onClick={props.onDelete}>Delete</button></td>
     </tr>
   );
@@ -23,12 +24,14 @@ SinglePageTableItem.propTypes = {
   page: object,
   onDetailsView: func,
   onDelete:func,
+  onEdit: func
 }
 
 SinglePageTableItem.defaultProps = {
   page: {},
   onDetailsView:() => {},
-  onDelete: () => {}
+  onDelete: () => {},
+  onEdit: () => {}
 }
 
 /** Exports the module. */
