@@ -23,7 +23,7 @@ const SetUpForm = props => (
       </div>
       <div className="form-item">
         <label htmlFor="newUserPassword">
-          <Input type="text" name="newUserPassword" onChange={props.handleInputChange} id="newUserPassword" required="true" placeholder="Your chosen password" />
+          <Input type="password" name="newUserPassword" onChange={props.handleInputChange} id="newUserPassword" required="true" placeholder="Your chosen password" />
           <p>Your database password.</p>
         </label>
 

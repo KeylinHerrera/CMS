@@ -66,8 +66,8 @@ class SetUpContainer extends Component {
 
   render() {
     return (
-      <div>
-        <h1> Setup Configuration </h1>
+      <div className="full-view aligner">
+        {/* <h1> Setup Configuration </h1> */}
         <SetUpForm
           handleSubmit={this.handleSubmit}
           handleInputChange={this.handleInputChange}

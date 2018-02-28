@@ -1,8 +1,17 @@
+// Containers
 .full-container{
   text-align: center;
   width: 100vw;
 }
 
-.section-container{
-  width: 90%;;
+.full-view {
+  width: 100vw;
+  height: 100vh;
+}
+
+// Container Position
+.aligner{
+  display: flex;
+  align-items: center;
+  justify-content: center
 }

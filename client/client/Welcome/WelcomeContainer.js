@@ -8,8 +8,8 @@ import { NavLink } from 'react-router-dom';
  * @returns titlle, text and URL values
  */
 const WelcomeContainer = () => (
-  <div className="welcome-container">
-    <div>
+  <div className="welcome-container full-view aligner">
+    <div className="aligner-item">
       <h2>Welcome to CMS</h2>
       <p>You will nedd to know the following items before proceeding</p>
       <ol>
