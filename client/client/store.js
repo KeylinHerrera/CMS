@@ -7,7 +7,7 @@ import { createLogger } from 'redux-logger';
 /** Imports Modules. */
 import SetUpReducer from './SetUp/SetUpReducer';
 import SinglePageReducer from './SinglePage/SinglePageReducer';
-// import ContentReducer from './Content/ContentReducer';
+import ContentReducer from './Content/ContentReducer';
 // import MediaReducer from './Media/MediaReducer';
 
 /** Creates Logger. */
@@ -21,7 +21,7 @@ const logger = createLogger({
 const reducer = combineReducers({
   SetUp: SetUpReducer,
   SinglePage: SinglePageReducer,
-  // Content: ContentReducer,
+  Content: ContentReducer,
   // Media: MediaReducer,
  });
 

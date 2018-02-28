@@ -4,21 +4,20 @@ import { connect } from 'react-redux';
 import { func, array } from 'prop-types';
 
 /** Imports Modules. */
-import SinglePageForm from './SinglePageForm';
-import SinglePageFormEdit from './SinglePageFormEdit';
-import SinglePageTable from './SinglePageTable';
-import SinglePageDetails from './SinglePageDetails';
+import ContentForm from './ContentForm';
+import ContentFormEdit from './ContentFormEdit';
+import ContentTable from './ContentTable';
 
 /** Imports from Actions. */
-import { addNewPage, getPages, updatePage, deletePage } from './actions';
+import { addNewContent, getContents, updateContent, deleteContent } from './actions';
 
 /**
- * Single Page Container Module.
- * Creates the State for Pages.
+ *  Content Container Module.
+ * Creates the State for Contents.
  * Get Data, Submit, Done, Update, View Methods.
  * @returns Basic base from App.
  */
-class SinglePageContainer extends Component {
+class ContentContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,9 +25,9 @@ class SinglePageContainer extends Component {
        * Form Values.
        * @type {string}.
        */
-      newSinglePageTitle: '',
-      newSinglePageURL: '',
-      newSinglePageText: '',
+      newContentTitle: '',
+      newContentURL: '',
+      newContentText: '',
       _id: '',
       /**
        * Shows Details Module.
@@ -77,38 +76,38 @@ class SinglePageContainer extends Component {
       var newContent = ev.editor.getData();
 
       this.setState({
-        newSinglePageText: newContent
+        newContentText: newContent
       })
   }
 
   /** Gets a input data and loads these in Data Base. */
   handleSubmit() { //evt
-    const page = {};
-    page.title = this.state.newSinglePageTitle;
-    page.url = this.state.newSinglePageURL;
-    page.text = this.state.newSinglePageText;
-    this.props.addNewPage(page);
+    const content = {};
+    content.title = this.state.newContentTitle;
+    content.url = this.state.newContentURL;
+    content.text = this.state.newContentText;
+    this.props.addNewContent(content);
 
     this.setState ({
-      newSinglePageTitle: '',
-      newSinglePageURL: '',
-      newSinglePageText: '',
+      newContentTitle: '',
+      newContentURL: '',
+      newContentText: '',
     });
   }
 
    /** Deletes Data. */
    handleDelete(ev){
     ev.preventDefault();
-    this.props.deletePage(ev.target.parentNode.parentNode.getAttribute('id'))
+    this.props.deleteContent(ev.target.parentNode.parentNode.getAttribute('id'))
   }
 
   /** Open Form Edit */
-  toogleEdit(page) { 
+  toogleEdit(content) { 
     this.setState ({
-      newSinglePageTitle: page.title,
-      newSinglePageURL: page.url,      
-      newSinglePageText: page.text,
-      _id: page._id,
+      newContentTitle: content.title,
+      newContentURL: content.url,      
+      newContentText: content.text,
+      _id: content._id,
       isEditing: !this.state.isEditing
     });
 
@@ -118,20 +117,20 @@ class SinglePageContainer extends Component {
   /** Edits the data */
   onSave(event){
     const field = event.target.name;
-    const page = {};
+    const content = {};
 
-    page.title = this.state.newSinglePageTitle;
-    page.url = this.state.newSinglePageURL;
-    page.text = this.state.newSinglePageText;
-    page._id = this.state._id;
+    content.title = this.state.newContentTitle;
+    content.url = this.state.newContentURL;
+    content.text = this.state.newContentText;
+    content._id = this.state._id;
 
-    page[field] = event.target.value;
-    this.props.updatePage(page);
+    content[field] = event.target.value;
+    this.props.updateContent(content);
 
     return this.setState({
-      newSinglePageTitle: '',
-      newSinglePageURL: '',
-      newSinglePageText: '',
+      newContentTitle: '',
+      newContentURL: '',
+      newContentText: '',
       _id: '',
       isEditing: false,
     });
@@ -141,13 +140,13 @@ class SinglePageContainer extends Component {
   render() {
     /**
     * Shows the Edit Form when the state is isEditing.
-    * @returns Single Page Form Edit.
+    * @returns  Content Form Edit.
     */
     if (this.state.isEditing){ 
       return (
         <div>
-          <h1> New Page </h1>
-          <SinglePageFormEdit
+          <h1> New Content </h1>
+          <ContentFormEdit
             item={this.state}
             onSave={this.onSave}
             handleInputChange={this.handleInputChange}
@@ -158,30 +157,26 @@ class SinglePageContainer extends Component {
     }
 
     /**
-    * @returns Single Page Form and Table.
+    * @returns  Content Form and Table.
     */
     return (
       <div>
-        <h1> New Page </h1>
-        <SinglePageForm
+        <h1> New Content </h1>
+        <ContentForm
           item={this.state}
           handleSubmit={this.handleSubmit}
           handleInputChange={this.handleInputChange}
           handleInputChangeEditor={this.handleInputChangeEditor}
         />
 
-        <SinglePageTable 
-          pages={this.props.pages}
+        <ContentTable 
+          contents={this.props.contents}
           toogleEdit={this.toogleEdit}
           handleDelete={this.handleDelete}
           showDetails={this.showDetails}
-          handleViewDetails={this.handleViewDetails}
-          
-          
+          handleViewDetails={this.handleViewDetails} 
         />
-        <SinglePageDetails 
-          handleView={this.handleView}
-        />
+ 
       </div>);
   }
 }
@@ -190,41 +185,41 @@ class SinglePageContainer extends Component {
 function mapStateToProps(state) {
   return {
     loading: state.loading,
-    pages: state.SinglePage.pages,
+    contents: state.Content.contents,
   };
 }
 
 /** All function inside this are Redux actions creator. */
 function mapDispatchToProps(dispatch) {
   return {
-    addNewPage: value => dispatch(addNewPage(value)),
+    addNewContent: value => dispatch(addNewContent(value)),
     loadData: () => {
-      dispatch(getPages());
+      dispatch(getContents());
     },
-    updatePage: (page) => dispatch(updatePage(page)),
-    deletePage: (page) => dispatch(deletePage(page)),
-    getDataPage: (page) => dispatch(getDataPage(page)),
+    updateContent: (content) => dispatch(updateContent(content)),
+    deleteContent: (content) => dispatch(deleteContent(content)),
+    getDataContent: (content) => dispatch(getDataContent(content)),
   };
 }
 
 /** Declares Props. */
-SinglePageContainer.propTypes = {
-  pages: array,
-  addNewPage: func,
+ContentContainer.propTypes = {
+  contents: array,
+  addNewContent: func,
   loadData: func,
-  updatePage: func,
-  deletePage: func,
-  getDataPage: func
+  updateContent: func,
+  deleteContent: func,
+  getDataContent: func
 };
 
-SinglePageContainer.defaultProps = {
-  pages: [],
-  addNewPage: () => {},
+ContentContainer.defaultProps = {
+  contents: [],
+  addNewContent: () => {},
   loadData: () => {},
-  updatePage: () => {},
-  deletePage: () => {},
-  getDataPage: () => {}
+  updateContent: () => {},
+  deleteContent: () => {},
+  getDataContent: () => {}
 };
 
 /** Exports to a module. */
-export default connect(mapStateToProps, mapDispatchToProps)(SinglePageContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(ContentContainer);

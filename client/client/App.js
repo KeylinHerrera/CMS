@@ -6,7 +6,7 @@ import { Switch, Route } from 'react-router-dom'
 import SetUpContainer from './SetUp/SetUpContainer'
 import DashboardContainer from './Dashboard/DashboardContainer'
 import SinglePageContainer from './SinglePage/SinglePageContainer'
-// import ContentContainer from './Content/ContentContainer'
+import ContentContainer from './Content/ContentContainer'
 // import MediaContainer from './Media/MediaContainer';
 import WelcomeContainer from './Welcome/WelcomeContainer';
 // import LogInContainer from './LogIn/LogInContainer';
@@ -28,7 +28,7 @@ export default class App extends React.Component {
           {/* Dashboard, templates Routes */}
           <Route path="/Dashboard" component={DashboardContainer} />
           <Route path="/Page" component={SinglePageContainer} />
-          {/* <Route exact path="/Content" component={ContentContainer} /> */}
+          <Route exact path="/Content" component={ContentContainer} />
           {/* <Route exact path="/Media" component={MediaContainer} /> */}
         </Switch>
       </div>);

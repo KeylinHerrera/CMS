@@ -17,7 +17,7 @@ const SidebarMenuContainer = () => (
             <ul className="">
               <li><NavLink className="nav__item" to='/Page'>Single Page</NavLink></li>
               <li><NavLink className="nav__item" to='/Content'>Content</NavLink></li>
-              <li><NavLink className="nav__item" to='/Media'>Media</NavLink></li>
+              {/* <li><NavLink className="nav__item" to='/Media'>Media</NavLink></li> */}
             </ul>
           </nav>
         </div>
