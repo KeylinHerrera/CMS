@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom';
  */
 const WelcomeContainer = () => (
   <div className="welcome-container full-view aligner">
-    <div className="aligner-item">
+    <div className="">
       <h2>Welcome to CMS</h2>
       <p>You will nedd to know the following items before proceeding</p>
       <ol>
@@ -18,7 +18,6 @@ const WelcomeContainer = () => (
         <li>Database host</li>
       </ol>
       <button className="btn btn-primary">
-        { /** Goes to Set Up Module */}
         <NavLink to='/SetUp'><p>Lets go!</p></NavLink >
       </button>
     </div>

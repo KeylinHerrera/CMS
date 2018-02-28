@@ -6,17 +6,13 @@ import SidebarMenuContainer from '../SidebarMenu/SidebarMenuContainer';
 
 /** Dashboard Module. */
 const DashboardContainer = () => (
-  <div className="section-container">
-    <div>
+  <div className="dashboard-container flex-container">
+    <div className="sidebar-container">
       <SidebarMenuContainer />
     </div>
-    <div>
-      <div>
-        <div>
-          <h2 >Hello</h2>
-          <h3>Welcome to CMS App</h3>
-        </div>
-      </div>
+    <div className="home-container">
+      <h2 >Hello</h2>
+      <h3>Welcome to CMS App</h3>
     </div>
   </div>
 );

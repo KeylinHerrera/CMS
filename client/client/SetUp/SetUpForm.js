@@ -37,7 +37,8 @@ const SetUpForm = props => (
 
       <div className="">
         <NavLink to='/Dashboard'>
-          <button type="submit" className="btn btn-primary" onClick={props.handleSubmit}><p>Submit</p></button>
+          <button type="submit" className="btn btn-primary" onClick={props.handleSubmit}>Submit</button>
+          {/* <NavLink to='/LogIn'><p>Submit!</p></NavLink> */}
         </NavLink>
       </div>
     </div>

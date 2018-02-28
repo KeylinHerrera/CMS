@@ -186,9 +186,7 @@ class SinglePageContainer extends Component {
           toogleEdit={this.toogleEdit}
           handleDelete={this.handleDelete}
           showDetails={this.showDetails}
-          handleViewDetails={this.handleViewDetails}
-          
-          
+          handleViewDetails={this.handleViewDetails} 
         />
         <SinglePageDetails 
           handleView={this.handleView}
