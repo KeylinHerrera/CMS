@@ -8,6 +8,7 @@ import SinglePageForm from './SinglePageForm';
 import SinglePageFormEdit from './SinglePageFormEdit';
 import SinglePageTable from './SinglePageTable';
 import SinglePageDetails from './SinglePageDetails';
+import SidebarMenuContainer from '../SidebarMenu/SidebarMenuContainer';
 
 /** Imports from Actions. */
 import { addNewPage, getPages, updatePage, deletePage } from './actions';
@@ -172,25 +173,30 @@ class SinglePageContainer extends Component {
     * @returns Single Page Form and Table.
     */
     return (
-      <div>
-        <h1> New Page </h1>
-        <SinglePageForm
-          item={this.state}
-          handleSubmit={this.handleSubmit}
-          handleInputChange={this.handleInputChange}
-          handleInputChangeEditor={this.handleInputChangeEditor}
-        />
+      <div className="siglepage-container flex-container">
+        <div className="sidebar-container section-wrap section--small">
+          <SidebarMenuContainer />
+        </div>
+        <div className="singlepage-container section-wrap section--lg">
+          <h1> New Page </h1>
+          <SinglePageForm
+            item={this.state}
+            handleSubmit={this.handleSubmit}
+            handleInputChange={this.handleInputChange}
+            handleInputChangeEditor={this.handleInputChangeEditor}
+          />
 
-        <SinglePageTable 
-          pages={this.props.pages}
-          toogleEdit={this.toogleEdit}
-          handleDelete={this.handleDelete}
-          showDetails={this.showDetails}
-          handleViewDetails={this.handleViewDetails} 
-        />
-        <SinglePageDetails 
-          handleView={this.handleView}
-        />
+          <SinglePageTable 
+            pages={this.props.pages}
+            toogleEdit={this.toogleEdit}
+            handleDelete={this.handleDelete}
+            showDetails={this.showDetails}
+            handleViewDetails={this.handleViewDetails} 
+          />
+          <SinglePageDetails 
+            handleView={this.handleView}
+          />
+        </div>
       </div>);
   }
 }

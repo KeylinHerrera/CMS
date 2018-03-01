@@ -8,8 +8,6 @@ import { createLogger } from 'redux-logger';
 import SetUpReducer from './SetUp/SetUpReducer';
 import SinglePageReducer from './SinglePage/SinglePageReducer';
 // import LogInReducer from './LogIn/LogInReducer'
-// import ContentReducer from './Content/ContentReducer';
-// import MediaReducer from './Media/MediaReducer';
 
 /** Creates Logger. */
 const logger = createLogger({

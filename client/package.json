@@ -31,6 +31,7 @@
     "redux-thunk": "^2.2.0",
     "semantic-ui-css": "^2.2.14",
     "semantic-ui-react": "^0.77.2",
+    "url-loader": "^0.6.2",
     "uuid": "^3.2.1",
     "webpack-dev-server": "^2.11.1"
   },

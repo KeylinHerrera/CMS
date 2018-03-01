@@ -1,0 +1,46 @@
+.welcome-info{
+  height: 100vh;
+}
+
+.welcome__info-item::before{
+  content: '';
+  background: center no-repeat url('../img/rocket.png');
+  background-size: 100%;
+  width: 26%;
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+}
+
+// .welcome__user{
+//   background-color: $blue;
+//   display: grid;
+//   height: 100vh;
+
+//   ul{
+//     list-style: none;
+//     margin: 0;
+//     padding: 0;
+//     overflow: hidden;
+//   }
+
+//   li{
+//     float: right;
+
+//     a{
+//       display: block;
+//     }
+//   }
+
+//   input{
+//     width: 200px;
+//   }
+// }
+
+.btn-setup{
+  border-radius: 0 1.8rem 1.8rem 0;
+}
+
+.btn-login{
+  border-radius: 1.8rem 0 0 1.8rem;
+}

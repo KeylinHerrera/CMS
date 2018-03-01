@@ -66,7 +66,7 @@ class SetUpContainer extends Component {
 
   render() {
     return (
-      <div className="full-view aligner">
+      <div className="section--md blue-bg">
         {/* <h1> Setup Configuration </h1> */}
         <SetUpForm
           handleSubmit={this.handleSubmit}

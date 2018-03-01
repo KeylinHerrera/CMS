@@ -4,9 +4,27 @@
   width: 100vw;
 }
 
-.full-view {
+.section-wrap{
+  padding: 3rem;
+  height: 100vh;
+}
+
+// Sides Containers
+.section--full {
   width: 100vw;
   height: 100vh;
+}
+
+.section--lg{
+  width: 80%;
+}
+
+.section--md{
+  width: 50%;
+}
+
+.section--small{
+  width: 20%;
 }
 
 // Container Position
@@ -20,7 +38,35 @@
   display: flex;
   min-height: 100%;
 }
+
 .item{
   width: 50%;
 }
 
+// Default Colors
+.blue-bg{
+  background-color: #10223F;
+  color: #fff;
+}
+
+.salmon-bg{
+  background-color: $salmon;
+  color: #fff;
+}
+
+.uppercase{
+  text-transform: uppercase;
+
+  p{
+    margin: 3rem 0 0 0;
+  }
+
+}
+
+// display: inline-grid;
+// justify-content: center;
+// align-items: center;
+// width: 50%;
+// margin: 0;
+// background-color: #F15B55;
+// color: #fff;

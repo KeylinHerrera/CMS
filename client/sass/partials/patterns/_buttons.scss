@@ -1,33 +1,43 @@
 // General Btn Style 
 .btn{
   background-color: #fff;
-  border-radius: 0.8rem;
   display: inline-block;
   font-size: 1.2rem;
   letter-spacing: 1rem;
-  margin: 2rem;
   padding: 1rem 1.1rem;
   text-transform: uppercase;
 }
 
 // Primary Btn
 .btn-primary{
-  border: 1px #F15B55 solid;
+  background-color: $salmon;
+  border: transparent;
+  border-radius: 1.8rem;
+  margin: 3rem 0;
 
-  p{
-    color: #F15B55;
-
-    &:hover {
-      color: #fff;
-      transition:all 0.3s ease;
-    }
+  span{
+    color: #fff;
   }
+
+  &:hover{
+    background-color: $ligth-salom;
+    transition:all 0.3s ease;
+  }
+
+}
+
+.btn-secondary{
+  background-color: #1C3D64;
+  border:transparent;
 
   &:hover{
     background-color: #F15B55;
     transition:all 0.3s ease;
-  }
 
+    span{
+      color:white;
+    }
+  }
 }
 
 // Link Btn

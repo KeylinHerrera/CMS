@@ -1,0 +1,19 @@
+input[type="text"],
+input[type="password"],
+textarea{
+  background-color: transparent;
+  border: none;
+  border-bottom: 0.5px solid #fff;
+  padding: 1rem;
+  width: 70%;
+
+  &::placeholder{
+    color: #7D8790;
+  }
+}
+
+form{
+  p{
+    margin: 3rem 0 0 0;
+  }
+}

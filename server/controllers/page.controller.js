@@ -28,8 +28,8 @@ function addPage(req, res) {
   })
 }
 
+/** Delete Page */
 function deletePage(req, res){
-
   Page.remove({
       _id: req.params.page_id
     }, function (err, page) {
@@ -41,6 +41,7 @@ function deletePage(req, res){
   )
 }
 
+/** UpDate Page */
 function updatePage(req, res){
    Page.findById(req.params.page_id, function(err, page) {
 

@@ -12,36 +12,36 @@ import { Input } from 'semantic-ui-react';
  * @returns Form
  */
 const SetUpForm = props => (
-  <div className="form-container" id="form-container">
-    <div className="form-basic">
+  <div className="form-container setup-container uppercase" id="form-container">
+    <h2> Setup Configuration </h2> 
+    <form className="form-basic">
       <div className="form-item">
         <label htmlFor="newUserName">
-          <Input type="text" name="newUserName" onChange={props.handleInputChange} id="newUserName" required="true" placeholder="Username" />
           <p>Your database username.</p>
+          <input type="text" name="newUserName" onChange={props.handleInputChange} id="newUserName" required="true" placeholder="Username" />
         </label>
 
       </div>
       <div className="form-item">
         <label htmlFor="newUserPassword">
-          <Input type="password" name="newUserPassword" onChange={props.handleInputChange} id="newUserPassword" required="true" placeholder="Your chosen password" />
           <p>Your database password.</p>
+          <input type="password" name="newUserPassword" onChange={props.handleInputChange} id="newUserPassword" required="true" placeholder="Your chosen password" />
         </label>
 
       </div>
       <div className="form-item">
         <label htmlFor="newDataBase">
-          <Input type="text" name="newDataBase" onChange={props.handleInputChange} id="newDataBase" required="true" placeholder="Data Base" />
           <p>The name of the database.</p>
+          <input type="text" name="newDataBase" onChange={props.handleInputChange} id="newDataBase" required="true" placeholder="Data Base" />
         </label>
       </div>
 
       <div className="">
         <NavLink to='/Dashboard'>
-          <button type="submit" className="btn btn-primary" onClick={props.handleSubmit}>Submit</button>
-          {/* <NavLink to='/LogIn'><p>Submit!</p></NavLink> */}
+          <button type="submit" className="btn btn-primary" onClick={props.handleSubmit}><NavLink to='/LogIn'><span>Submit!</span></NavLink></button>
         </NavLink>
       </div>
-    </div>
+    </form>
   </div>
 );
 

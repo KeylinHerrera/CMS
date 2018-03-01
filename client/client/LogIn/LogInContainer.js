@@ -63,7 +63,7 @@ class SetUpContainer extends Component {
 
   render() {
     return (
-      <div className="full-view aligner">
+      <div className="section--full salmon-bg aligner">
         <LogInForm
           handleSubmit={this.handleSubmit}
           handleInputChange={this.handleInputChange}

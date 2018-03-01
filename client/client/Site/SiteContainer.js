@@ -11,7 +11,7 @@ import SiteGenerator from './SiteGenerator';
 /**
  * Single Page Container Module.
  * Creates the State for Pages.
- * Get Data, Submit, Done, Update, View Methods.
+ * Get Data.
  * @returns Basic base from App.
  */
 class SinglePageContainer extends Component {
