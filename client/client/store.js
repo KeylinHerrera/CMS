@@ -7,7 +7,7 @@ import { createLogger } from 'redux-logger';
 /** Imports Modules. */
 import SetUpReducer from './SetUp/SetUpReducer';
 import SinglePageReducer from './SinglePage/SinglePageReducer';
-// import LogInReducer from './LogIn/LogInReducer'
+import LogInReducer from './LogIn/LogInReducer'
 
 /** Creates Logger. */
 const logger = createLogger({
@@ -20,7 +20,7 @@ const logger = createLogger({
 const reducer = combineReducers({
   SetUp: SetUpReducer,
   SinglePage: SinglePageReducer,
-  // LogIn:LogInReducer,
+  LogIn:LogInReducer,
  });
 
 /** Contains the state of the application. */

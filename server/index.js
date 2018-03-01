@@ -8,7 +8,7 @@ const morgan = require('morgan')
 const jwt = require('jsonwebtoken')
 const cors = require('cors')
 
-// const config = require('./config')
+const config = require('./config') //----------->>
 
 /** Connects to Mongodb */
 const DB_QUERY_STRING = process.env.DB
@@ -17,9 +17,8 @@ const DB_QUERY_STRING = process.env.DB
 
 /** Imports Modules. */
 const setupRoutes = require('./routes/setups')
-// const logInRoutes = require('./routes/logIns')
+const authRoutes = require('./routes/auths') //----------->>
 const pageRoutes = require('./routes/pages')
-// const contentRoutes = require('./routes/contents')
 
 const app = express()
 
@@ -42,9 +41,8 @@ app.get('/', (req, res) => {
 
 /** Uses predefined URL in client */
 app.use('/api/v2/setups', setupRoutes)
-// app.use('/api/v2/logIns', logInRoutes)
+app.use('/api/v2/auths', authRoutes) //----------->>
 app.use('/api/v2/pages', pageRoutes)
-// app.use('/api/v2/contents', contentRoutes)
 
 /** Returns an Error. */
 app.listen(app.get('port'), err => {

@@ -1,45 +1,27 @@
 /** Defines the Default State. */
 const DEFAULT_STATE = {
   loading: false,
-  users: [],
+  logIn: false,
   error: '',
 };
 
 /** Specifies how the application's state changes in response to actions sent to the store. */
-const users = (state = DEFAULT_STATE, action) => {
+const auths = (state = DEFAULT_STATE, action) => {
   switch (action.type) {
-    case 'GET_USERS_REQUEST':
+    case ' AUTH_USER_REQUEST':
       return {
         ...state,
-        loading: true,
+        logIn: false,
       };
-    case 'GET_USERS_SUCCESS':
+    case 'AUTH_USER_SUCCESS':
       return {
         ...state,
-        loading: false,
-        users: action.users,
+        // logIn: action.success,
       };
-    case 'GET_USERS_FAILURE':
+    case 'AUTH_USER_FAILURE':
       return {
         ...state,
-        loading: false,
-        error: action.error,
-      };
-    case 'ADD_USER_REQUEST':
-      return {
-        ...state,
-        loading: true,
-      };
-    case 'ADD_USER_SUCCESS':
-      return {
-        ...state,
-        loading: false,
-        users: [...state.users, action.user],
-      };
-    case 'ADD_USER_FAILURE':
-      return {
-        ...state,
-        loading: false,
+        logIn: false,
         error: action.error,
       };
     default:
@@ -48,4 +30,4 @@ const users = (state = DEFAULT_STATE, action) => {
 };
 
 /** Exports the module. */
-export default users;
+export default auths;

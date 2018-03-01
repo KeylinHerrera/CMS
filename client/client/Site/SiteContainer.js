@@ -2,10 +2,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { func, array } from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 /** Imports from Actions. */
 import { getPages } from './actions';
 
+import SiteMenu from './SiteMenu';
 import SiteGenerator from './SiteGenerator';
 
 /**
@@ -28,6 +30,9 @@ class SinglePageContainer extends Component {
   
     return (
       <div>
+        <SiteMenu 
+          pages={this.props.pages}  
+        />
         <SiteGenerator 
           pages={this.props.pages}
         />

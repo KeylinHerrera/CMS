@@ -13,7 +13,7 @@ import { authUsers } from './actions';
  * Get Data, Submit, Done, Update.
  * @returns Basic base from Setup Form.
  */
-class SetUpContainer extends Component {
+class LogInContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -87,15 +87,15 @@ function mapDispatchToProps(dispatch) {
 }
 
 /** Declares Props. */
-SetUpContainer.propTypes = {
-  authUsers: func,
+LogInContainer.propTypes = {
   logIn: bool,
+  authUsers: func,
 };
 
-SetUpContainer.defaultProps = {
+LogInContainer.defaultProps = {
   logIn: false,
   authUsers:() => {}
 };
 
 /** Exports to a module. */
-export default connect(mapStateToProps, mapDispatchToProps)(SetUpContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(LogInContainer);

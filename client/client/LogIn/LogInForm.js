@@ -3,7 +3,7 @@ import React from 'react';
 import { func } from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
-import { Input } from 'semantic-ui-react';
+// import { Input } from 'semantic-ui-react';
 
 /**
  * SetUp Form Module.
@@ -11,7 +11,7 @@ import { Input } from 'semantic-ui-react';
  * @func handleSubmit, handleInputChange.
  * @returns Form
  */
-const SetUpForm = props => (
+const LogInForm = props => (
   <div className="login-form form-container setup-container blue-bg uppercase" id="form-container">
     <div>
       <h2> Setup Configuration </h2> 
@@ -41,16 +41,16 @@ const SetUpForm = props => (
 );
 
 /** Declares Props. */
-SetUpForm.propTypes = {
+LogInForm.propTypes = {
   handleSubmit: func,
   handleInputChange: func,
 };
 
 /** Exports the module. */
-SetUpForm.defaultProps = {
+LogInForm.defaultProps = {
   handleSubmit: () => {},
   handleInputChange: () => {},
 };
 
 
-export default SetUpForm;
+export default LogInForm;
