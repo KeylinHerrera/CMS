@@ -2,13 +2,18 @@
 require('dotenv').config()
 
 const express = require('express')
+const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const morgan = require('morgan')
+const jwt = require('jsonwebtoken')
 const cors = require('cors')
+
+// const config = require('./config')
 
 /** Connects to Mongodb */
 const DB_QUERY_STRING = process.env.DB
   || 'mongodb://localhost:27017/csmdatabase'
+
 
 /** Imports Modules. */
 const setupRoutes = require('./routes/setups')

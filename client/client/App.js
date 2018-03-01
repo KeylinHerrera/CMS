@@ -6,6 +6,7 @@ import { Switch, Route } from 'react-router-dom'
 import SetUpContainer from './SetUp/SetUpContainer'
 import DashboardContainer from './Dashboard/DashboardContainer'
 import SinglePageContainer from './SinglePage/SinglePageContainer'
+import SiteContainer from './Site/SiteContainer'
 // import ContentContainer from './Content/ContentContainer'
 // import MediaContainer from './Media/MediaContainer';
 import WelcomeContainer from './Welcome/WelcomeContainer';
@@ -26,6 +27,7 @@ export default class App extends React.Component {
           {/* <Route exact path="/" component={InstallationContainer} /> */}
           {/* <Route exact path="/LogIn" component={LogInContainer} /> */}
           {/* Dashboard, templates Routes */}
+          <Route path="/Site" component={SiteContainer} />
           <Route path="/Dashboard" component={DashboardContainer} />
           <Route path="/Page" component={SinglePageContainer} />
           {/* <Route exact path="/Content" component={ContentContainer} /> */}

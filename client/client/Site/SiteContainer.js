@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 import { func, array } from 'prop-types';
 
 /** Imports from Actions. */
-import {  getPages } from './actions';
+import { getPages } from './actions';
+
+import SiteGenerator from './SiteGenerator';
 
 /**
  * Single Page Container Module.
@@ -25,8 +27,11 @@ class SinglePageContainer extends Component {
   render() {
   
     return (
-      // div > this.props..map > return template(crear)
-      // danger
+      <div>
+        <SiteGenerator 
+          pages={this.props.pages}
+        />
+      </div>
     )
   }
 }
@@ -34,7 +39,6 @@ class SinglePageContainer extends Component {
 /** Subscribes new component to Redux Store Updates. */
 function mapStateToProps(state) {
   return {
-    loading: state.loading,
     pages: state.SinglePage.pages,
   };
 }
@@ -45,7 +49,6 @@ function mapDispatchToProps(dispatch) {
     loadData: () => {
       dispatch(getPages());
     },
-    getDataPage: (page) => dispatch(getDataPage(page)),
   };
 }
 
@@ -53,13 +56,11 @@ function mapDispatchToProps(dispatch) {
 SinglePageContainer.propTypes = {
   pages: array,
   loadData: func,
-  getDataPage: func
 };
 
 SinglePageContainer.defaultProps = {
   pages: [],
   loadData: () => {},
-  getDataPage: () => {}
 };
 
 /** Exports to a module. */

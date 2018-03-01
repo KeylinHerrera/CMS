@@ -13,6 +13,37 @@ html {
   font-size: 62.5%;
 }
 
-strong {
-  font-weight: 800;
+html {
+  font: 1em/1.5; // 1
+  width: 100%;
+  height: 100%;
+  -ms-text-size-adjust: 100%; // 3
+  -webkit-text-size-adjust: 100%; // 3
+  overflow-x: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+// Remove the margin in all browsers (opinionated).
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  position: relative;
+}
+
+// Add the correct display in IE 9-.
+article,
+aside,
+footer,
+header,
+nav,
+section,
+figcaption,
+figure,
+main,
+details,
+menu,
+button {
+  display: block;
 }

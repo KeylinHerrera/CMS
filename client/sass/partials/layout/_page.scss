@@ -15,3 +15,12 @@
   align-items: center;
   justify-content: center
 }
+
+.flex-container{
+  display: flex;
+  min-height: 100%;
+}
+.item{
+  width: 50%;
+}
+
