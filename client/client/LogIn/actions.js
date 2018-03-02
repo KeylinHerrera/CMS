@@ -25,7 +25,7 @@ const authUser = user => (dispatch) => {
     .then((data) => {
       dispatch({
         type: AUTH_USER_SUCCESS,
-        user: data,
+        message: data,
       });
     })
     .catch((error) => {

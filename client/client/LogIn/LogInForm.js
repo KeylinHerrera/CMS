@@ -14,28 +14,29 @@ import { NavLink } from 'react-router-dom';
 const LogInForm = props => (
   <div className="login-form form-container setup-container blue-bg uppercase" id="form-container">
     <div>
-      <h2> Setup Configuration </h2> 
-      <form className="form-basic">
+      <h2> Log In </h2> 
         <div className="form-item">
           <label htmlFor="newUserName">
             <p>Your username.</p>
-            <input type="text" name="newUserName" onChange={props.handleInputChange} id="newUserName" required="true" placeholder="Username" />
+            <input type="text" name="UserName" onChange={props.handleInputChange} id="newUserName" required="true" placeholder="Username" />
           </label>
 
         </div>
         <div className="form-item">
           <label htmlFor="newUserPassword">
             <p>Your password.</p>
-            <input type="password" name="newUserPassword" onChange={props.handleInputChange} id="newUserPassword" required="true" placeholder="Password" />
+            <input type="password" name="UserPassword" onChange={props.handleInputChange} id="newUserPassword" required="true" placeholder="Password" />
           </label>
         </div>
 
         <div className="">
-          <NavLink to='/Dashboard'>
-            <button type="submit" className="btn btn-primary" onClick={props.handleSubmit}><NavLink to='/Dashboard'><span>Log In</span></NavLink></button>
-          </NavLink>
+          <button type="submit" className="btn btn-primary" onClick={props.handleSubmit}>
+            <span>Log In</span>
+            {/* <NavLink to="/Dashboard"> 
+              <span>Log In</span>
+            </NavLink> */}
+          </button>
         </div>
-      </form>
     </div>
   </div>
 );

@@ -103,6 +103,7 @@ class SinglePageContainer extends Component {
    /** Deletes Data. */
    handleDelete(ev){
     ev.preventDefault();
+    console.log(ev.target.parentNode.parentNode.getAttribute('id'))
     this.props.deletePage(ev.target.parentNode.parentNode.getAttribute('id'))
   }
 
@@ -174,11 +175,10 @@ class SinglePageContainer extends Component {
     */
     return (
       <div className="siglepage-container flex-container">
-        <div className="sidebar-container section-wrap section--small">
+        <div className="sidebar-container section--small aligner blue-bg">
           <SidebarMenuContainer />
         </div>
         <div className="singlepage-container section-wrap section--lg">
-          <h1> New Page </h1>
           <SinglePageForm
             item={this.state}
             handleSubmit={this.handleSubmit}

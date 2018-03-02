@@ -11,7 +11,6 @@ import { object } from 'prop-types';
 const SinglePageDetails = (props) => {
   return (
     <div>
-      <h2>Details</h2>
       <h3>{props.page.title}</h3>
       <p>{props.page.text}</p>
       <strong>{props.page.url}</strong>

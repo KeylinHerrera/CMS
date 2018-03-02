@@ -44,7 +44,7 @@ const SinglePageForm = props => (
       </div>
 
       <div className="form-item">
-        <Button type="submit" className="btn-primary blue btn-empty" onClick={props.handleSubmit}>Submit</Button>
+        <button type="submit" className="btn btn-primary" onClick={props.handleSubmit}><span>Submit</span></button>
       </div>
     </div>
   </div>

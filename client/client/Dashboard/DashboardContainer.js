@@ -6,8 +6,8 @@ import SidebarMenuContainer from '../SidebarMenu/SidebarMenuContainer';
 
 /** Dashboard Module. */
 const DashboardContainer = () => (
-  <div className="dashboard-container flex-container">
-    <div className="sidebar-container section--small">
+  <div className="dashboard-container section--full flex-container aligner">
+    <div className="sidebar-container section--small aligner blue-bg">
       <SidebarMenuContainer />
     </div>
     <div className="home-container section--lg">

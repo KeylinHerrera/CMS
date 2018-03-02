@@ -7,7 +7,7 @@ const SetUp = require('../models/SetUp')
 
 /** UpDate Page */
 function authUser(req, res){
-  // find the user
+  // Find the user
   SetUp.findOne(
     {
       username: req.body.name
@@ -22,12 +22,7 @@ function authUser(req, res){
         })
       } else if (user) {
         // check if password matches
-        if (user.password != req.body.password) {
-          res.json({
-            success: false,
-            message: 'Authentication failed. Wrong password.'
-          })
-        } else {
+        if (user.password === req.body.password) {
           // if user is found and password is right
           // create a token with only our given payload
           // we don't want to pass in the entire user since that has the password
@@ -44,6 +39,11 @@ function authUser(req, res){
             success: true,
             message: 'Enjoy your token!',
             token: token
+          })
+        } else {
+          res.json({
+            success: false,
+            message: 'Authentication failed. Wrong password.'
           })
         }
       }

@@ -14,9 +14,12 @@ const auths = (state = DEFAULT_STATE, action) => {
         logIn: false,
       };
     case 'AUTH_USER_SUCCESS':
+    console.log('prueba', action.message.success)
       return {
         ...state,
-        // logIn: action.success,
+        // logIn: true,
+        /** Gets Success State*/
+        logIn: action.message.success
       };
     case 'AUTH_USER_FAILURE':
       return {

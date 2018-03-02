@@ -10,12 +10,19 @@ import { i } from 'semantic-ui-react';
  * @returns Nav
  */
 const SidebarMenuContainer = () => (
-  <div className="">
-    <h1 className="">CMS</h1>
-    <nav className="">
-      <ul className="">
-        <li><NavLink className="nav__item" to='/Page'><i class="edit outline icon"></i>Single Page</NavLink></li>
-        <li><NavLink className="nav__item" to='/Site'><i class="eye icon"></i>Visit Site</NavLink></li>
+  <div className="sidebar-section">
+    <h1>CMS</h1>
+    <nav className="sidebar__nav">
+      <ul>
+        <div>
+          <i className="edit outline icon"></i>
+          <li><NavLink className="nav__item" to='/Page'>Single Page</NavLink></li>
+        </div>
+        <div>
+          <i className="eye icon"></i>
+          <li><NavLink className="nav__item" to='/Site'>Visit Site</NavLink></li>
+        </div>
+        
       </ul>
     </nav>
   </div>

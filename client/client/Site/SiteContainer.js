@@ -9,6 +9,7 @@ import { getPages } from './actions';
 
 import SiteMenu from './SiteMenu';
 import SiteGenerator from './SiteGenerator';
+import SidebarMenuContainer from '../SidebarMenu/SidebarMenuContainer';
 
 /**
  * Single Page Container Module.
@@ -29,13 +30,18 @@ class SinglePageContainer extends Component {
   render() {
   
     return (
-      <div>
-        <SiteMenu 
-          pages={this.props.pages}  
-        />
-        <SiteGenerator 
-          pages={this.props.pages}
-        />
+      <div className="section--full aligner">
+        <div className="sidebar-container section-wrap section--small blue-bg aligner">
+          <SidebarMenuContainer />
+        </div>
+        <div className="site-section section-wrap section--lg aligner">
+          <SiteMenu 
+            pages={this.props.pages}  
+          />
+          <SiteGenerator 
+            pages={this.props.pages}
+          />
+        </div>
       </div>
     )
   }
